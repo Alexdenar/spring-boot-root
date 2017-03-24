@@ -12,4 +12,8 @@ public interface IMessageService extends IBaseService<Message, Integer>{
     public static final String SERVICE_NAME = "IMessageService";
 
     public List<Message> findMessageInfo();
+
+    public int count();
+
+    public List<Message> pageQuery();
 }

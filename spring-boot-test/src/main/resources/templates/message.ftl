@@ -5,7 +5,7 @@
     <title>Spring Boot 集成Mybatis 测试例子</title>
 </head> <body>
 
-<h1>Spring Boot 集成Mybatis 测试例子</h1>
+<h1>Spring Boot 集成Mybatis 分页 测试例子</h1>
 <em>${.now}</em>
 
 

@@ -43,4 +43,14 @@ public class MessageServiceImpl implements IMessageService {
     public List<Message> findMessageInfo() {
         return messageMapper.findMessageInfo();
     }
+
+    @Override
+    public int count() {
+        return messageMapper.count();
+    }
+
+    @Override
+    public List<Message> pageQuery() {
+        return null;
+    }
 }

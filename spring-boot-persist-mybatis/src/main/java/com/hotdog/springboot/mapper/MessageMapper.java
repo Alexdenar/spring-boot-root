@@ -11,4 +11,6 @@ import java.util.List;
 @Repository
 public interface MessageMapper {
     public List<Message> findMessageInfo();
+
+    public int count();
 }

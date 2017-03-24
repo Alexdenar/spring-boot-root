@@ -11,4 +11,7 @@
         select * from message
     </select>
 
+    <select id="count" resultType="Integer">
+        select count(1) from message
+    </select>
 </mapper>
