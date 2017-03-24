@@ -1,25 +1,26 @@
 package com.hotdog.springboot.controller;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Created by hotdog on 2017/3/22.
  */
-@Controller
-@EnableAutoConfiguration
+@RestController
 public class SampleController {
 
     @RequestMapping("/")
-    @ResponseBody
-    String home() {
-        return "Hello World!";
+    public String index(){
+        return "hotdog:Spring Boot Application...";
     }
 
-    public static void main(String[] args) throws Exception {
-        SpringApplication.run(SampleController.class, args);
+    @RequestMapping("/test/{val}")
+    @ResponseBody
+    public String test(@PathVariable("val") String val) {
+        return "Hello! "+val;
     }
 }
