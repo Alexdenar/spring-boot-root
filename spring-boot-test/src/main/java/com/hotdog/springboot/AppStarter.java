@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
@@ -37,6 +38,8 @@ import java.util.Properties;
 @MapperScan("com.hotdog.springboot.mapper")
 //启动注解事务管理
 @EnableTransactionManagement
+//启用定时任务
+@EnableScheduling
 public class AppStarter {
 
     private static final String TYPE_ALIASES_PACKAGE = "com.hotdog.springboot.model";

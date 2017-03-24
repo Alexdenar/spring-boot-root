@@ -4,6 +4,9 @@
     <title>${status?if_exists }</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <style type="text/css">
+        body {
+            margin-left: 200px
+        }
         span {
             font-size: 25px;
             font-weight: bold;
@@ -12,7 +15,7 @@
     </style>
 </head>
 <body>
-<h1>这是默认的error页面</h1>
+<h1>这是404异常页面</h1>
 <br>
 <p>当前时间：${.now?string("yyyy-MM-dd HH:mm:ss.sss")}</p>
 <div class="body">
