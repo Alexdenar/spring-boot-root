@@ -9,24 +9,13 @@ public class MongoDemo {
 
     //id属性是给mongodb用的，用@Id注解修饰
     @Id
-    private Long id;
+    private String id;
+
+    private String name;
+
+    private int age;
 
     private String nickname;
-    private Integer age;
-
-    public MongoDemo(Long id, String nickname, Integer age) {
-        this.id = id;
-        this.nickname = nickname;
-        this.age = age;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getNickname() {
         return nickname;
@@ -36,11 +25,24 @@ public class MongoDemo {
         this.nickname = nickname;
     }
 
-    public Integer getAge() {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
         return age;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(int age) {
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "DemoInfo [id=" + id + ", name=" + name + ", age=" + age + "]";
     }
 }

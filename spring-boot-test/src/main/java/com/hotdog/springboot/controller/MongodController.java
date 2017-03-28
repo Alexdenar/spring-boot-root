@@ -1,42 +1,56 @@
 package com.hotdog.springboot.controller;
 
 import com.hotdog.springboot.model.mongo.MongoDemo;
-import com.hotdog.springboot.repositories.UserRepository;
-import org.junit.Assert;
+import com.hotdog.springboot.repositories.MongoDemoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * Created by hotdog on 2017/3/28.
  */
 @RestController
+@RequestMapping("/mongo")
 public class MongodController {
 
     @Autowired
-    private UserRepository userRepository;
+    private MongoDemoRepository mongoDemoRepository;
 
-    @RequestMapping("/mongo/test")
-    public void mongotest () {
-        userRepository.deleteAll();
+    @RequestMapping("/save")
+    public String save(){
+        /*MongoDemo demoInfo = new MongoDemo();
+        demoInfo.setName("张三");
+        demoInfo.setAge(20);
+        mongoDemoRepository.save(demoInfo);
 
-        // 创建三个User，并验证demo总数
-        userRepository.save(new MongoDemo(1L, "hotdog", 30));
-        userRepository.save(new MongoDemo(2L, "mama", 40));
-        userRepository.save(new MongoDemo(3L, "kaka", 50));
-        int size = userRepository.findAll().size();
-        Assert.assertEquals(3, size);
+        demoInfo = new MongoDemo();
+        demoInfo.setName("李四");
+        demoInfo.setAge(30);
+        mongoDemoRepository.save(demoInfo);*/
 
-        // 删除一个demo，再验证demo总数
-        /*MongoDemo u = userRepository.findOne(1L);
-        userRepository.delete(u);
-        int size1 = userRepository.findAll().size();
-        Assert.assertEquals(2, size1);*/
+        MongoDemo demoInfo = new MongoDemo();
+        demoInfo.setName("赵乾");
+        demoInfo.setAge(24);
+        demoInfo.setNickname("hotdog");
+        mongoDemoRepository.save(demoInfo);
 
-        // 删除一个demo，再验证demo总数
-        /*u = userRepository.findByNickname("hotdog");
-        userRepository.delete(u);
-        int size2 = userRepository.findAll().size();
-        Assert.assertEquals(1, size2);*/
+        return "ok";
+    }
+
+    @RequestMapping("/find")
+    public List<MongoDemo> find(){
+        return mongoDemoRepository.findAll();
+    }
+
+    @RequestMapping("/findByName")
+    public MongoDemo findByName(){
+        return mongoDemoRepository.findByName("张三");
+    }
+
+    @RequestMapping("/findByNickname")
+    public MongoDemo findByNickname(){
+        return mongoDemoRepository.findByNickname("hotdog");
     }
 }
