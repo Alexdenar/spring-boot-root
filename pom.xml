@@ -51,14 +51,6 @@
                 <version>1.2.6.RELEASE</version>
             </dependency>
 
-            <!--springboot 集成Mybatis所需jar配置 start-->
-            <!--支持使用 JDBC 访问数据库-->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-jdbc</artifactId>
-                <version>1.4.0.RELEASE</version>
-            </dependency>
-
             <!-- 子模块统一版本 -->
             <dependency>
                 <groupId>org.springframework</groupId>
@@ -69,6 +61,14 @@
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-tx</artifactId>
                 <version>4.3.2.RELEASE</version>
+            </dependency>
+
+            <!--springboot 集成Mybatis所需jar配置 start-->
+            <!--支持使用 JDBC 访问数据库-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-jdbc</artifactId>
+                <version>1.4.0.RELEASE</version>
             </dependency>
 
             <!--Mybatis-->
@@ -112,11 +112,21 @@
                 <version>1.10.19</version>
             </dependency>
 
+            <!-- 分页插件 -->
             <dependency>
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper</artifactId>
                 <version>4.1.6</version>
             </dependency>
+
+            <!-- mongodb引入 start-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-mongodb</artifactId>
+                <version>1.5.2.RELEASE</version>
+            </dependency>
+
+            <!-- mongodb引入 end-->
 
         </dependencies>
     </dependencyManagement>
@@ -141,6 +151,7 @@
         <module>spring-boot-persist-mybatis</module>
         <module>spring-boot-api</module>
         <module>spring-boot-service</module>
+        <module>spring-boot-mongodb</module>
     </modules>
 
 </project>
