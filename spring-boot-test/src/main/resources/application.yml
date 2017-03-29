@@ -1,0 +1,28 @@
+server:
+#自定义运行端口
+  port: 9080
+spring:
+  application:
+    name: hotdog-sb
+  datasource:
+    url: jdbc:mysql://localhost:3306/hotdog?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+    username: hotdog
+    password: hotdog
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+          max-active: 20
+          initial-size: 1
+          min-idle: 3
+          max-wait: 60000
+          time-between-eviction-runs-millis: 60000
+          min-evictable-idle-time-millis: 300000
+          test-while-idle: true
+          test-on-borrow: false
+          test-on-return: false
+  data:
+    mongodb:
+          uri: mongodb://hotdog:hotdog@192.168.17.128:27017/hotdog
+
+#启动调试状态
+debug: true

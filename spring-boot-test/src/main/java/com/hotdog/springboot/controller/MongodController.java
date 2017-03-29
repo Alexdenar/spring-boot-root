@@ -20,7 +20,7 @@ public class MongodController {
 
     @RequestMapping("/save")
     public String save(){
-        /*MongoDemo demoInfo = new MongoDemo();
+        MongoDemo demoInfo = new MongoDemo();
         demoInfo.setName("张三");
         demoInfo.setAge(20);
         mongoDemoRepository.save(demoInfo);
@@ -28,13 +28,13 @@ public class MongodController {
         demoInfo = new MongoDemo();
         demoInfo.setName("李四");
         demoInfo.setAge(30);
-        mongoDemoRepository.save(demoInfo);*/
-
-        MongoDemo demoInfo = new MongoDemo();
-        demoInfo.setName("赵乾");
-        demoInfo.setAge(24);
-        demoInfo.setNickname("hotdog");
         mongoDemoRepository.save(demoInfo);
+
+//        MongoDemo demoInfo = new MongoDemo();
+//        demoInfo.setName("赵乾");
+//        demoInfo.setAge(24);
+//        demoInfo.setNickname("hotdog");
+//        mongoDemoRepository.save(demoInfo);
 
         return "ok";
     }

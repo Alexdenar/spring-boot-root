@@ -30,6 +30,12 @@ import java.util.Properties;
  * 3).Spring WebMvc框架会将Servlet容器里收到的Http请求根据路径分发到对应的@Controller下进行处理。
  */
 
+/**
+ * update by hotdog-2017-3-29
+ * 此类已弃用，但仍保留，新启动类参考 Application.java
+ * 多个类含有main方法时，在pom中配置mainClass
+ */
+
 @Configuration
 @EnableAutoConfiguration
 @SpringBootApplication

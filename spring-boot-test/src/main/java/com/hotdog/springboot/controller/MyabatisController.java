@@ -2,11 +2,15 @@ package com.hotdog.springboot.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.hotdog.springboot.inf.IMessageService;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -18,7 +22,12 @@ public class MyabatisController {
     @Autowired
     private IMessageService messageService;
 
-    @RequestMapping("/pagequery/{currentPage}/{pageSize}")
+    @ApiOperation(value="message分页查询", notes="根据currentPage、pageSize返回查询结果")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "currentPage", paramType = "path", value = "当前页", required = true, dataType = "Integer"),
+            @ApiImplicitParam(name = "pageSize", paramType = "path", value = "每页的数据量", required = true, dataType = "Integer")
+    })
+    @RequestMapping(value="/pagequery/{currentPage}/{pageSize}",method= RequestMethod.GET)
     public String index(Model model, @PathVariable("currentPage") Integer currentPage,
                         @PathVariable("pageSize") Integer pageSize) {
         if (currentPage != null) {
