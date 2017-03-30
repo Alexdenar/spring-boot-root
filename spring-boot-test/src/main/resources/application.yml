@@ -25,4 +25,9 @@ spring:
           uri: mongodb://hotdog:hotdog@192.168.17.128:27017/hotdog
 
 #启动调试状态
-debug: true
+#debug: true
+
+#logging:
+  #file: log.log
+  #level:
+    #com.hotdog.springboot.controller : warn

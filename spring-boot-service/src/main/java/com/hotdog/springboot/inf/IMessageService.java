@@ -1,6 +1,6 @@
 package com.hotdog.springboot.inf;
 
-import com.hotdog.springboot.model.Message;
+import com.hotdog.springboot.model.mybatis.Message;
 
 import java.util.List;
 

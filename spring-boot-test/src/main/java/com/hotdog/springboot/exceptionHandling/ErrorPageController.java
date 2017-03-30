@@ -1,4 +1,4 @@
-package com.hotdog.springboot.custom;
+package com.hotdog.springboot.exceptionHandling;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.web.ErrorAttributes;

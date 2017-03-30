@@ -7,6 +7,7 @@ import java.util.Date;
 
 /**
  * Created by hotdog on 2017/3/24.
+ * 定时任务
  */
 @Component
 public class AppTask {

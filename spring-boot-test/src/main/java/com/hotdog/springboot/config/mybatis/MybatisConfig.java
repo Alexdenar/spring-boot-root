@@ -1,4 +1,4 @@
-package com.hotdog.springboot.config;
+package com.hotdog.springboot.config.mybatis;
 
 import com.github.pagehelper.PageHelper;
 import org.apache.ibatis.plugin.Interceptor;

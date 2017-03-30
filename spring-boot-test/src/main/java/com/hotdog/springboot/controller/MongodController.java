@@ -4,6 +4,7 @@ import com.hotdog.springboot.model.mongo.MongoDemo;
 import com.hotdog.springboot.repositories.MongoDemoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public class MongodController {
     @Autowired
     private MongoDemoRepository mongoDemoRepository;
 
-    @RequestMapping("/save")
+    @RequestMapping(value = "/save",method = RequestMethod.GET)
     public String save(){
         MongoDemo demoInfo = new MongoDemo();
         demoInfo.setName("张三");
@@ -39,17 +40,17 @@ public class MongodController {
         return "ok";
     }
 
-    @RequestMapping("/find")
+    @RequestMapping(value = "/find",method = RequestMethod.GET)
     public List<MongoDemo> find(){
         return mongoDemoRepository.findAll();
     }
 
-    @RequestMapping("/findByName")
+    @RequestMapping(value = "/findByName",method = RequestMethod.GET)
     public MongoDemo findByName(){
         return mongoDemoRepository.findByName("张三");
     }
 
-    @RequestMapping("/findByNickname")
+    @RequestMapping(value = "/findByNickname",method = RequestMethod.GET)
     public MongoDemo findByNickname(){
         return mongoDemoRepository.findByNickname("hotdog");
     }

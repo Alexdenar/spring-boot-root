@@ -1,4 +1,4 @@
-package com.hotdog.springboot.model;
+package com.hotdog.springboot.model.mybatis;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 

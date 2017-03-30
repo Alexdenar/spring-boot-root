@@ -2,7 +2,7 @@ package com.hotdog.springboot.impl;
 
 import com.hotdog.springboot.inf.IMessageService;
 import com.hotdog.springboot.mapper.MessageMapper;
-import com.hotdog.springboot.model.Message;
+import com.hotdog.springboot.model.mybatis.Message;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

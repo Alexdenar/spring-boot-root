@@ -1,4 +1,4 @@
-package com.hotdog.springboot.config;
+package com.hotdog.springboot.config.druid;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.boot.bind.RelaxedPropertyResolver;

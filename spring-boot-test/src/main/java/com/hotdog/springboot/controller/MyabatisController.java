@@ -40,4 +40,10 @@ public class MyabatisController {
         model.addAttribute("currentPage", currentPage);
         return "pagequery";
     }
+
+    @RequestMapping(value = "/message",method = RequestMethod.GET)
+    public String message(Model model){
+        model.addAttribute("messages", messageService.findMessageInfo());
+        return "message";
+    }
 }

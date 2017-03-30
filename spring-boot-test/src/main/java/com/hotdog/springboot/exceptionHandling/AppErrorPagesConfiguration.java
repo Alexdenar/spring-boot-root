@@ -1,4 +1,4 @@
-package com.hotdog.springboot.custom;
+package com.hotdog.springboot.exceptionHandling;
 
 import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;

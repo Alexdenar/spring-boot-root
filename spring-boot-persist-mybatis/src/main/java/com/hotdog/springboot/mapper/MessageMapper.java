@@ -1,6 +1,6 @@
 package com.hotdog.springboot.mapper;
 
-import com.hotdog.springboot.model.Message;
+import com.hotdog.springboot.model.mybatis.Message;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
