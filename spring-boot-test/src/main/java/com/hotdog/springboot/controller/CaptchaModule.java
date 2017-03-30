@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by hotdog on 2017/3/30.
@@ -41,6 +42,9 @@ public class CaptchaModule {
                 .addText().addBackground(new GradiatedBackgroundProducer())
                 .gimp(new FishEyeGimpyRenderer())
                 .build();
+
+        //将验证码以<key,value>形式缓存到redis
+        redisTemplate.opsForValue().set(uuid, captcha.getAnswer(), captchaExpires, TimeUnit.SECONDS);
 
         //将验证码key，及验证码的图片返回
         Cookie cookie = new Cookie("CaptchaCode",uuid);
