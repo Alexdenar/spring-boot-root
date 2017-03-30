@@ -132,6 +132,17 @@
             <artifactId>springfox-swagger2</artifactId>
         </dependency>
 
+        <!-- redis -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-redis</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.apiclub.tool</groupId>
+            <artifactId>simplecaptcha</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>

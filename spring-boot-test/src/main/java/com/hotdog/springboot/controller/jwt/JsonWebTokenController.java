@@ -7,6 +7,7 @@ import com.hotdog.springboot.model.jwt.AccessToken;
 import com.hotdog.springboot.model.jwt.LoginPara;
 import com.hotdog.springboot.model.mybatis.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,6 +27,9 @@ public class JsonWebTokenController {
     @Autowired
     private UserRepositoy userRepositoy;
 
+    @Autowired
+    private RedisTemplate<String, String> redisTemplate;
+
     @RequestMapping(value = "oauth/token",method = RequestMethod.PUT)
     public Object getAccessToken(@RequestBody LoginPara loginPara) {
 
@@ -42,6 +46,28 @@ public class JsonWebTokenController {
             }
 
             //验证码校验
+            String captchaCode = loginPara.getCaptchaCode();
+            try {
+                if (captchaCode == null)
+                {
+                    throw new Exception();
+                }
+                String captchaValue =  redisTemplate.opsForValue().get(captchaCode);
+                if (captchaValue == null)
+                {
+                    throw new Exception();
+                }
+                redisTemplate.delete(captchaCode);
+
+                if (captchaValue.compareTo(loginPara.getCaptchaValue()) != 0)
+                {
+                    throw new Exception();
+                }
+            } catch (Exception e) {
+                resultMsg = new ResultMsg(ResultStatusCode.INVALID_CAPTCHA.getErrcode(),
+                        ResultStatusCode.INVALID_CAPTCHA.getErrmsg(), null);
+                return resultMsg;
+            }
 
             //验证用户名密码
             UserInfo user = userRepositoy.findUserInfoByName(loginPara.getUserName());
