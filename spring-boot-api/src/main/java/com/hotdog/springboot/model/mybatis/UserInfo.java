@@ -1,8 +1,5 @@
 package com.hotdog.springboot.model.mybatis;
 
-import com.sun.istack.internal.NotNull;
-import org.springframework.data.annotation.Id;
-
 import java.util.Date;
 
 /**

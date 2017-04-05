@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!--半自动化，使用annotation来注解-->
+    <dubbo:application name="hotdog_dubbo_rest" />
+    <!-- 使用zookeeper广播注册中心暴露服务地址 -->
+    <dubbo:registry protocol="zookeeper" address="127.0.0.1:52181" />
+
+    <!-- 去除默认的dubbo异常处理器 -->
+    <!--<dubbo:provider filter="-exception"/>-->
+
+    <!-- 扫描注解包路径，多个包用逗号分隔，不填pacakge表示扫描当前ApplicationContext中所有的类 -->
+    <dubbo:annotation package="com.hotdog.springboot.api" />
+
+    <!--这里可以声明多种协议，rest的协议应该使用内嵌的tomcat-->
+    <dubbo:protocol name="rest" port="58811" threads="500" contextpath="hotdogrest" server="tomcat" accepts="500"/>
+
+    <!--<dubbo:protocol name="dubbo" port="20880" />-->
+
+    <!--<bean id="swaggerService" class="io.swagger.jaxrs.listing.DubboxAcceptHeaderApiListingResource" />
+    <bean id="beanConfig" class="io.swagger.jaxrs.config.BeanConfig">
+	    <property name="schemes" value="http" />
+	    &lt;!&ndash; com.abc.aa这个值不能写成com.abc.aa.*&ndash;&gt;
+	    <property name="resourcePackage" value="com.hotdog.springboot.rest  &lt;!&ndash; 版本号 &ndash;&gt;
+	    <property name="version" value="1.0"/>
+	    &lt;!&ndash; IP地址 &ndash;&gt;
+	    <property name="host" value="127.0.0.1:9090"/>
+	    &lt;!&ndash; 基础路径，为空即可 &ndash;&gt;
+	    <property name="basePath" value=""/>
+	    <property name="title" value="用户中心API"/>
+	    <property name="description" value="用户管理"/>
+	    <property name="contact" value="kevin"/>
+	    <property name="scan" value="true"/>
+	</bean>
+	<dubbo:service interface="io.swagger.jaxrs.listing.DubboxSwaggerService" ref="swaggerService"/>-->
+
+</beans>
+
