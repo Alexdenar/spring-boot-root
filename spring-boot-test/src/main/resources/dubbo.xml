@@ -19,7 +19,9 @@
     <dubbo:annotation package="com.hotdog.springboot.rest" />
 
     <!--这里可以声明多种协议，rest的协议应该使用内嵌的tomcat-->
-    <dubbo:protocol name="rest" port="58811" threads="500" contextpath="hotdogrest" server="tomcat" accepts="500"/>
+    <dubbo:protocol name="rest" port="58911" threads="500" contextpath="hotdogrest" server="tomcat" accepts="500"/>
+
+    <!--<dubbo:service interface="com.hotdog.springboot.api.DubboSampleService" ref="dubboSampleService" protocol="rest" />-->
 
     <!--<dubbo:protocol name="dubbo" port="20880" />-->
 
