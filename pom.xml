@@ -240,6 +240,22 @@
                 </exclusions>
             </dependency>
 
+            <dependency>
+                <groupId>net.sf.jmimemagic</groupId>
+                <artifactId>jmimemagic</artifactId>
+                <version>0.1.4</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.codehaus.jackson</groupId>
+                        <artifactId>jackson-jaxrs</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.codehaus.jackson</groupId>
+                        <artifactId>jackson-xc</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
             <!-- 子模块统一版本 -->
             <dependency>
                 <groupId>org.springframework</groupId>

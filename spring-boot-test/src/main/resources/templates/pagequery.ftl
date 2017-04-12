@@ -27,7 +27,7 @@
             <ul>
                 <#list 1..totalPage as pageNumber>
                     <li style="float: left;width: 20px;list-style: none;">
-                        <a href="http://localhost:8080/${pageNumber }/${pageSize}" style="${(currentPage == pageNumber)?string('color:red;font-size:17px;font-weight: bold;','')}">${pageNumber }</a>
+                        <a href="http://localhost:9080/pagequery/${pageNumber }/${pageSize}" style="${(currentPage == pageNumber)?string('color:red;font-size:17px;font-weight: bold;','')}">${pageNumber }</a>
                     </li>
                 </#list>
             </ul>
