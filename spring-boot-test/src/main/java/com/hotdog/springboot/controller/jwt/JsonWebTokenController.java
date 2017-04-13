@@ -1,6 +1,7 @@
 package com.hotdog.springboot.controller.jwt;
 
 import com.hotdog.springboot.common.util.*;
+import com.hotdog.springboot.common.util.md5.MyMD5Utils;
 import com.hotdog.springboot.mapper.UserRepositoy;
 import com.hotdog.springboot.model.customProp.Audience;
 import com.hotdog.springboot.model.jwt.AccessToken;

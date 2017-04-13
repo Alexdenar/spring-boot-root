@@ -256,6 +256,25 @@
                 </exclusions>
             </dependency>
 
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>2.5</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-net</groupId>
+                <artifactId>commons-net</artifactId>
+                <version>2.0</version>
+            </dependency>
+
+            <!-- *** json BEGIN -->
+            <dependency>
+                <groupId>net.sf.json-lib</groupId>
+                <artifactId>json-lib</artifactId>
+                <version>2.4</version>
+                <classifier>jdk15</classifier>
+            </dependency>
+
             <!-- 子模块统一版本 -->
             <dependency>
                 <groupId>org.springframework</groupId>

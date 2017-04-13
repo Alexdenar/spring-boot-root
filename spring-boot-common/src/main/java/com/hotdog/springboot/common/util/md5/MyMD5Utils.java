@@ -1,4 +1,4 @@
-package com.hotdog.springboot.common.util;
+package com.hotdog.springboot.common.util.md5;
 
 import java.security.MessageDigest;
 
