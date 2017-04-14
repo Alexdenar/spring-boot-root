@@ -61,6 +61,21 @@ public abstract class Proxy
      *
      * @param ics interface class array.
      * @return Proxy instance.
+     * update by zq 2017-04-14
+     * 解决dubbo集成到spring-boot,使用spring-boot-devtools时创建rest服务异常
+     */
+
+    /**
+     * 问题原因是采用spring-boot-devtools会存在两个classloader，
+     * 一个是应用类加载器AppClassLoader，一个RestartClassLoader，
+     * AppClassLoader用于加载第三方jar，
+     * 而RestartClassLoader用于加载用户目录下的class。
+     * 使用rest协议时，会为每个service创建代理类，
+     * com.alibaba.dubbo.common.bytecode.Proxy创建代理类时，
+     * 是用proxy所在classloader为AppClassLoader，
+     * 去加载用户目录下的class，自然就会报class不可见。
+     * @param ics
+     * @return
      */
     public static Proxy getProxy(Class<?>... ics)
     {
